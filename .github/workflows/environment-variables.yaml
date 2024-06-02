@@ -1,7 +1,10 @@
-name: Context
+name: Environment Variables
 on: push
 jobs:
   print:
     runs-on: ubuntu-latest
+    env:
+      BRANCH: main
     steps:
-      - run: echo "${{ github.actor }}"
+      - run: echo "${BRANCH}"
+      - run: echo "${{ env.BRANCH }}"
